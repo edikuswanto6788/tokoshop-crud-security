@@ -5,6 +5,7 @@
  */
 package com.exam7.tokoshop.entity;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table ( name = "t_cart_item")
-public class CartItem {
+public class CartItem implements Serializable{
     
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

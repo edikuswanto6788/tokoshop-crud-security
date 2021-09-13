@@ -5,6 +5,7 @@
  */
 package com.exam7.tokoshop.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -24,7 +25,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table (name="t_cart")
-public class Cart {
+public class Cart implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +35,7 @@ public class Cart {
     private String status;
     
     @Column (name = "transaction_date", nullable = false)
-    private Date transationDate;
+    private Date transactionDate;
     
     @ManyToOne // user setiap user dapat memiliki lebih ati 1 brang
     @JoinColumn (name = "id_user", nullable = false)
@@ -59,12 +60,12 @@ public class Cart {
         this.status = status;
     }
 
-    public Date getTransationDate() {
-        return transationDate;
+    public Date getTransactionDate() {
+        return transactionDate;
     }
 
-    public void setTransationDate(Date transationDate) {
-        this.transationDate = transationDate;
+    public void setTransactionDate(Date transactionDate) {
+        this.transactionDate = transactionDate;
     }
 
     public User getUser() {

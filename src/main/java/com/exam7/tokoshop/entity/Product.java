@@ -5,6 +5,7 @@
  */
 package com.exam7.tokoshop.entity;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table (name = "t_product")
-public class Product {
+public class Product implements Serializable {
     
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -29,8 +30,8 @@ public class Product {
     @Column (name = "name", length=255, nullable = false)
     private String name;
     
-    @Column (name = "id_category", nullable = false)
-    private Integer categoryId;
+    @Column (name = "description",length =255, nullable = false)
+    private String description;
     
     @Column (name = "price", nullable = false)
     private Integer price;
@@ -58,14 +59,15 @@ public class Product {
         this.name = name;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
+   
     public Integer getPrice() {
         return price;
     }

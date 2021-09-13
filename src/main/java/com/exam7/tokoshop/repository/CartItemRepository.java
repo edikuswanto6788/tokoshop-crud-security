@@ -5,7 +5,7 @@
  */
 package com.exam7.tokoshop.repository;
 
-import com.exam7.tokoshop.entity.Product;
+import com.exam7.tokoshop.entity.CartItem;
 import java.util.Optional;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.repository.CrudRepository;
@@ -14,17 +14,8 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author Edi
  */
-public interface ProductRepository extends CrudRepository<Product, Integer> {
-
+public interface CartItemRepository extends CrudRepository<CartItem, Integer> {
+   
     @Override
-    @Cacheable(value = "getProducts")
-    public Iterable<Product> findAll();
-
-    @Override
-    @Cacheable(value = "getProductById", key = "#id") //untuk menangkap redis berdasarakan key
-    public Optional<Product> findById(Integer id);
-    
-    
-    
-
+    public Optional<CartItem> findById(Integer id);
 }
